@@ -72,7 +72,7 @@ import com.Gangothri.service.FlightService;
 		}
 		@GetMapping("/flight")
 		public ModelAndView showFlightEntryPage() {
-			List<Long> routeList=routeDao.findAllRouteIds();
+		List<Long> routeList=routeDao.findAllRoutesId();
 			Flight flight=new Flight();
 			ModelAndView mv=new ModelAndView("flightEntryPage");
 			mv.addObject("flightRecord",flight);
@@ -89,7 +89,7 @@ import com.Gangothri.service.FlightService;
 			}
 		@GetMapping("/flights")
 		public ModelAndView showFlightReportPage() {
-			List<Flight> flightList=flightDao.findAllFlights();
+			List<Long> flightList=flightDao.findAllFlights();
 			ModelAndView mv=new ModelAndView("flightReportPage");
 			mv.addObject("flightList",flightList);
 			return mv;
@@ -109,7 +109,7 @@ import com.Gangothri.service.FlightService;
 			if(fromAirport.equalsIgnoreCase(toAirport))
 				throw new RouteException();
 			Route route=routeDao.findRouteBySourceAndDestination(fromAirport, toAirport);
-			List<Flight> flightList=flightDao.findFlightsByRouteId(route.getRouteId());
+			List<Flight> flightList=flightDao.findByRouteId(route.getRouteId());
 			ModelAndView mv=new ModelAndView("routeFlightShowPage");
 			mv.addObject("flightList",flightList);
 			mv.addObject("fromAirport",fromCity);
@@ -121,6 +121,7 @@ import com.Gangothri.service.FlightService;
 		public ModelAndView handlingRouteException(RouteException exception ) {
 			String messsage="From-City & To-CIty cannot be the same....";
 			ModelAndView mv=new ModelAndView("routeErrorPage");
+			Object message = null;
 			mv.addObject("errorMessage",message);
 			return mv;
 			

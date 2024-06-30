@@ -10,7 +10,11 @@ import javax.persistence.Id;
 @Entity
 public class Airport {
 
-	    @Id
+	    @Override
+	public String toString() {
+		return "Airport [airportCode=" + airportCode + ", airportLocation=" + airportLocation + "]";
+	}
+		@Id
 	    private String airportCode;
 	    private String airportLocation;
 		public String getAirportCode() {

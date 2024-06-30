@@ -29,7 +29,7 @@ public class RouteDaoImpI implements RouteDao {
 	@Override
 	public Route findRouteBySourceAndDestination(String source,String destination)
 	{
-		return repository.findRouteBySourceAndDestination(source,destination);
+		return repository.findRouteBySourceAndDestination( source, destination);
 	}
 	
 	
@@ -45,7 +45,7 @@ public class RouteDaoImpI implements RouteDao {
 	}
 	
 	@Override
-	public List<Long> findAllRouteId(){
+	public List<Long> findAllRoutesId(){
 		return repository.findAllRoutesId();
 	}
 

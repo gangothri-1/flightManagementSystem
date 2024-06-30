@@ -16,6 +16,13 @@
         background-color: #f4f4f4;
         color: #333;
     }
+    .background-image{
+        background-image:url('flight.jpg');
+        background-size:cover;
+        background-repeat:no-repeat;
+        height:100vh;
+        
+        }
     
     h1 {
         font-family: 'ALGERIAN', sans-serif;
@@ -147,25 +154,31 @@
         <button class="dropbtn"><i class="fas fa-plane-departure"></i> Airport</button>
         <div class="dropdown-content">
             <a href="/airport"><i class="fas fa-plus-circle"></i> Airport Addition</a>
-            <a href="#"><i class="fas fa-info-circle"></i> Single Airport Information</a>
             <a href="/airports"><i class="fas fa-chart-bar"></i> Airport Reports</a>
         </div>
     </div> 
-    <a href="#schedule"><i class="fas fa-calendar-alt"></i>Route</a>
-    <a href="#flight"><i class="fas fa-plane"></i> Flight</a>
+    <div class="dropdown">
+    <button class="drpobtn"><i class="fas fa-calendar-alt"></i>Route</button>
+    <div class="dropdown-content">
+      <a href="/route">Route Addition</a>
+      <a href="/routes">All Routes</a>
+    </div>
+    </div>
+    
+    
+    <div class="dropdown">
+    <button class="drpobtn"><i class="fas fa-plane"></i>Flight</button>
+    <div class="dropdown-content">
+      <a href="/flight">Flight Addition</a>
+      <a href="/flights">All Flights</a>
+    </div>
+    </div>
+    
+    <a href="/flightSearch"><i class="fas fa-plane"></i> Book Flight</a>
     <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
-<div class="intro">
-    <img src="https://th.bing.com/th/id/OIP.H37wVLav9t53w7hUehWENQHaEK?w=333&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Airport Image">
-    <div class="intro-text">
-        <h2>Efficient Airport Management</h2>
-        <p>Our Flight Management System provides a comprehensive solution for managing airport operations, ensuring seamless travel experiences. From flight scheduling to real-time updates, our system is designed to handle all aspects of airport management efficiently.</p>
-        <p>Explore our features to learn more about how we can help streamline your airport operations.</p>
-    </div>
-</div>
 
-<div class="footer">
-    <p>&copy; 2024 Flight Management System | <a href="#contact">Contact Us</a> | <a href="#privacy">Privacy Policy</a></p>
-</div>
+
+
 </body>
 </html>

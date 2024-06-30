@@ -13,7 +13,7 @@ import com.Gangothri.bean.Flight;
 
 @Repository
 @Service
-public class FlightDaoImpI  implements FlightDao{
+public class FlightDaoImpI  implements  FlightDao{
 
 		
 			
@@ -39,10 +39,28 @@ public class FlightDaoImpI  implements FlightDao{
 			public List<Long> findAllFlightNumbers() {
 				return repository.findAllFlightNumbers();
 			}*/
+			
+
+			
+
+			
+
+			@Override
+			public void save(Flight flight) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public List<Long> findAllFlights() {
+				// TODO Auto-generated method stub
+				return null;
+			}
 
 			@Override
 			public List<Flight> findByRouteId(Long routeId) {
-				return repository.findByRouteId(routeId);
+				// TODO Auto-generated method stub
+				return null;
 			}
 
 			

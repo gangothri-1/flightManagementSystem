@@ -14,7 +14,7 @@ public interface RouteRepository  extends JpaRepository <Route,Long>{
 	public Long findLastRouteId();
 	
 	@Query("SELECT routeId FROM Route a WHERE sourceAirport = ?1 AND destinationAirportCode = ?2")
-	public Long findRouteBySourceAndDestination(String sourceAirportCode,String destinationAirportCode);
+	public Route findRouteBySourceAndDestination(String sourceAirportCode,String destinationAirportCode);
 	
 	@Query("SELECT routeId FROM Route")
 	public List<Long>findAllRoutesId();

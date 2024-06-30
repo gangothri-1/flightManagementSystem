@@ -2,6 +2,8 @@ package com.Gangothri.controller;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +35,7 @@ public class AirportController {
 	        String str = airport.getAirportCode().toUpperCase();
 	        airport.setAirportCode(str);
 	        String stg= airport.getAirportLocation().toUpperCase();
-	        airport.setAirportCode(stg);
+	        airport.setAirportLocation(stg);
 	        airportDao.addAirport(airport);
 	        return new ModelAndView("index");
 	    }

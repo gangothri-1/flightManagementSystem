@@ -3,6 +3,7 @@ import java.util.List;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,7 @@ public class AirportDaoImpI implements AirportDao {
     }
 
     @Override
-    public List<String> findAllAirportCodes() {
+    public List<String> findAllAirportLocations() {
         return repository.findAllAirportCodes();
     }
     @Override

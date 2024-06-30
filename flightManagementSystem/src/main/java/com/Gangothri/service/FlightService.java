@@ -17,7 +17,7 @@ public class FlightService {
 		Route route=routeDao.findRouteById(flight.getRouteId());
 		String sourceCode=route.getDestinationAirportCode();
 		String destinationCode=route.getSourceAirportCode();
-		Long route2=routeDao.findRouteBySourceAndDestination(sourceCode,destinationCode);
+		Route route2=routeDao.findRouteBySourceAndDestination(sourceCode,destinationCode);
 		return new Flight(newId ,flight.getCarrierName(),route2.getRouteId(),flight.getSeatCapacity(),dtime,atime);
 		
 	}
