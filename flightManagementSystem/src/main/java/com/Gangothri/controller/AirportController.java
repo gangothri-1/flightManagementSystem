@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class AirportController {
 	 @Autowired
 	    private AirportDao airportDao;
 
-
+	
 	    @GetMapping("/airport")
 	    public ModelAndView showAirportEntryPage() {
 	        Airport airport = new Airport();
@@ -37,38 +38,24 @@ public class AirportController {
 	        String stg= airport.getAirportLocation().toUpperCase();
 	        airport.setAirportLocation(stg);
 	        airportDao.addAirport(airport);
-	        return new ModelAndView("index");
+	        //return new ModelAndView("index");
+	        return new ModelAndView("redirect:/index");
 	    }
 
-	    /*@GetMapping("/airport-select")
-	    public ModelAndView showAirportSelectPage() {
-	        List<String> codeList = airportDao.findAllAirportCodes();
-	        ModelAndView mv = new ModelAndView("airportSelectPage");
-	        mv.addObject("codeList", codeList);
-	        return mv;
-	    }
 	    
-	    @PostMapping("/airport-select")
-	    public ModelAndView showSingleAirportPage(@RequestParam("airport-code") String id) {
-	        Airport airport = airportDao.findAirportById(id);
-	        ModelAndView mv = new ModelAndView("airportShowPage");
-	        mv.addObject("airport", airport);
-	        return mv;
-	    }
-	    */
-
-	    @GetMapping("/airports")
-	    public ModelAndView showAirportReportPage() {
-	        List<Airport> airportList = airportDao.findAllAirports();
-	        ModelAndView mv = new ModelAndView("airportReportPage");
-	        mv.addObject("airportList", airportList);
-	        return mv;
-	    }
+	   
 	    @GetMapping("/airport/{id}")
 	    public ModelAndView showSingleAirportReportPage(@PathVariable("id") String id) {
 	        Airport airport = airportDao.findAirportById(id);
 	        ModelAndView mv = new ModelAndView("airportShowPage");
 	        mv.addObject("airport", airport);
+	        return mv;
+	    }
+	    @GetMapping("/airports")
+	    public ModelAndView showAirportReportPage() {
+	        List<Airport> airportList = airportDao.findAllAirports();
+	        ModelAndView mv = new ModelAndView("airportReportPage");
+	        mv.addObject("bcd", airportList);
 	        return mv;
 	    }
 	}

@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Flight Management System</title>
-    <style>
+<title>Insert title here</title>
+<style>
     
     
         body {
@@ -72,42 +71,20 @@ WELCOME TO FLIGHT MANAGEMENT SYSTEM
 </div>
 
 <div class="navbar">
-    <div class="dropdown">
-  
-        <a href="javascript:void(0)" class="dropbtn">Airport</a>
-        <div class="dropdown-content">
-            <a href="/airport">Airport Addition</a>
-            <!--  <a href="/airport-select">Single Airport Information</a>-->
-            <a href="/airports">Airport Reports</a>   
-        </div>
-    </div>
-    
- <div class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">Route</a>
-        <div class="dropdown-content">
-            <a href="/route">Route Addition</a>
-            <a href="/routes">Routes Report</a>
-        </div>
-    </div>
 
- <div class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">Flight</a>
-        <div class="dropdown-content">
-            <a href="/flight">Flight Addition</a>
-            <a href="/flights">All Flights</a>
-        </div>
-        </div>
-        <div class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">Flight Booking</a>
-        <div class="dropdown-content">
-            <a href="/flight-search">Flight Search</a>
-        </div>
-        </div>
-      
- <div class="dropdown">
+<div class="dropdown">
+<button class="dropbtn">Flight Booking
+<i class="fa fa-caret-down"></i>
+</button>
+<div class="dropdown-content">
+<a href="/flight-search">Flight Search</a>
+</div>
+</div>
+<div class="dropdown">
         <a href="/loginpage">Logout</a>
         </div>  
-
+</head>
+<body>
 
 </body>
 </html>

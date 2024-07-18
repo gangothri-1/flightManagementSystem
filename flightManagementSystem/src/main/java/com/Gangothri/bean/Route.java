@@ -5,6 +5,7 @@ package com.Gangothri.bean;
 import javax.persistence.Entity;
 
 
+
 import javax.persistence.Id;
 
 
@@ -14,18 +15,18 @@ public class Route {
      private Long routeId;
      private String sourceAirportCode;
      private String destinationAirportCode;
-     public Double fair;
+     public Double fare;
 	public Route() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Route(Long routeId, String sourceAirportCode, String destinationAirportCode, Double fair) {
+	public Route(Long routeId, String sourceAirportCode, String destinationAirportCode, Double fare) {
 		super();
 		this.routeId = routeId;
 		this.sourceAirportCode = sourceAirportCode;
 		this.destinationAirportCode = destinationAirportCode;
-		this.fair = fair;
+		this.fare = fare;
 	}
 
 	
@@ -48,13 +49,15 @@ public class Route {
 		this.destinationAirportCode = destinationAirportCode;
 	}
 
-	public Double getFair() {
-		return fair;
+	public Double getFare() {
+		return fare;
 	}
 
-	public void setFair(Double fair) {
-		this.fair = fair;
+	public void setFare(Double fare) {
+		this.fare = fare;
 	}
+
+	
 	
 	
      

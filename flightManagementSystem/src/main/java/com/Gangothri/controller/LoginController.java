@@ -27,10 +27,10 @@ public class LoginController {
 	
 	
 
-    @GetMapping("/index")
+    /*@GetMapping("/index")
     public ModelAndView showIndexPage() {
         return new ModelAndView("index");
-    }
+    }*/
 	@GetMapping("/register")
 	public ModelAndView showUserRegisterPage() {
 		FlightUser user= new FlightUser();
@@ -59,7 +59,17 @@ public class LoginController {
 	public ModelAndView showLoginErrorPage() {
 		return new ModelAndView("loginErrorPage");
 	}
-	
+	@GetMapping("/index")
+	public ModelAndView showIndexPage() {
+	String indexPage="";
+	String userType=service.getType();
+	if(userType.equalsIgnoreCase("Admin"))
+	     indexPage="index1";
+	 else if(userType.equalsIgnoreCase("Customer"))
+	      indexPage="index2";
+	 return new ModelAndView(indexPage);
+		
+	}
 		
 	}
 

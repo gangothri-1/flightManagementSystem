@@ -9,8 +9,9 @@ import com.Gangothri.bean.Flight;
 
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 	@Query("SELECT a FROM Flight a WHERE routeId= ?1")
-	public List<Flight> findFlightByRouteId(Long routeId);
+	public List<Flight> findFlightsByRouteId(Long routeId);
 	
-	
+	@Query("SELECT a FROM Flight a WHERE id=?1")
+	public List<Flight> findFlightById(Long id);
 
 }

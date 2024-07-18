@@ -5,21 +5,38 @@ import javax.persistence.Entity;
 
 
 
+
 import javax.persistence.Id;
 
 @Entity
 public class Airport {
 
-	    @Override
-	public String toString() {
-		return "Airport [airportCode=" + airportCode + ", airportLocation=" + airportLocation + "]";
-	}
+	   
 		@Id
 	    private String airportCode;
 	    private String airportLocation;
+	    
 		public String getAirportCode() {
 			return airportCode;
 		}
+		
+		
+
+		public Airport() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+
+
+		public Airport(String airportCode, String airportLocation) {
+			super();
+			this.airportCode = airportCode;
+			this.airportLocation = airportLocation;
+		}
+
+
+
 		public void setAirportCode(String airportCode) {
 			this.airportCode = airportCode;
 		}
@@ -28,6 +45,10 @@ public class Airport {
 		}
 		public void setAirportLocation(String airportLocation) {
 			this.airportLocation = airportLocation;
+		}
+		@Override
+		public String toString() {
+			return "Airport [airportCode=" + airportCode + ", airportLocation=" + airportLocation + "]";
 		}
 
 	    

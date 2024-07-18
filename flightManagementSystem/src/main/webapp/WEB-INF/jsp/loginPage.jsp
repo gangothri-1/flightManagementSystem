@@ -5,135 +5,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  
-  background-size: cover;
-  background-position: center;
-}
-.wrapper{
-  width: 420px;
-  background: purple;
-  border: 2px solid rgba(255, 255, 255, .2);
-  backdrop-filter: blur(9px);
-  color: #fff;
-  border-radius: 12px;
-  padding: 30px 40px;
-}
-.wrapper h1{
-  font-size: 36px;
-  text-align: center;
-}
-.wrapper .input-box{
-  position: relative;
-  width: 100%;
-  height: 50px;
-  
-  margin: 30px 0;
-}
-.input-box input{
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  border: 2px solid rgba(255, 255, 255, .2);
-  border-radius: 40px;
-  font-size: 16px;
-  color: #fff;
-  padding: 20px 45px 20px 20px;
-}
-.input-box input::placeholder{
-  color: #fff;
-}
-.input-box i{
-  position: absolute;
-  right: 20px;
-  top: 30%;
-  transform: translate(-50%);
-  font-size: 20px;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Reservation System</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/images/flights.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            border: 20px solid transparent;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            margin-top: 150px;
+            background-color: rgba(255, 255, 255, 0.75);
+        }
+        .login-box h3 {
+            margin-bottom: 20px;
+        }
+        .form-label1 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        function validatePassword() {
+            var password = document.getElementById("password").value;
 
-}
-.wrapper .remember-forgot{
-  display: flex;
-  justify-content: space-between;
-  font-size: 14.5px;
-  margin: -15px 0 15px;
-}
-.remember-forgot label input{
-  accent-color: #fff;
-  margin-right: 3px;
+            // Basic validation criteria
+            var minLength = 8;
+            var containsNumber = /[0-9]/.test(password);
+            var containsUpperCase = /[A-Z]/.test(password);
+            var containsLowerCase = /[a-z]/.test(password);
+            var containsSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
-}
-.remember-forgot a{
-  color: #fff;
-  text-decoration: none;
+            if (password.length < minLength) {
+                alert("Password must be at least " + minLength + " characters long.");
+                return false;
+            }
+            if (!containsNumber) {
+                alert("Password must contain at least one number.");
+                return false;
+            }
+            if (!containsUpperCase) {
+                alert("Password must contain at least one uppercase letter.");
+                return false;
+            }
+            if (!containsLowerCase) {
+                alert("Password must contain at least one lowercase letter.");
+                return false;
+            }
+            if (!containsSpecialChar) {
+                alert("Password must contain at least one special character.");
+                return false;
+            }
 
-}
-.remember-forgot a:hover{
-  text-decoration: underline;
-}
-.wrapper .btn{
-  width: 100%;
-  height: 45px;
-  background: #fff;
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  font-weight: 600;
-}
-.wrapper .register-link{
-  font-size: 14.5px;
-  text-align: center;
-  margin: 20px 0 15px;
+            return true;
+        }
 
-}
-.register-link p a{
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-}
-.register-link p a:hover{
-  text-decoration: underline;
-}
-</style>
-
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var toggleCheckbox = document.getElementById("togglePassword");
+            if (toggleCheckbox.checked) {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+</head>
 <body>
-<meta charset="UTF-8">
-<div align="center">
-
 <c:url value="/login" var="login"/>
-<div align="center">
-<h3>
-<form:form action="${login}" method="post">
-<h1>Login</h1>
-</br>
- Enter User Id:<input type="text" name="username"/>
-<br></br>
-Enter Password:<input type="password" name="password"/>
-<br></br>
-<input type="submit" value="Login"/>
 
-</form:form>
-</h3>
-<h2>
-<a href="/register">Register for new User</a>
-</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="login-box shadow-lg">
+                <h2 class="text-center">Login</h2>
+                <form:form action="${login}" method="post" onsubmit="return validatePassword()">
+                    <div class="form-group">
+                        <label for="username" class="form-label1">Enter User Id:</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label1">Enter Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required />
+                        <div class="form-check mt-2">
+                            <input type="checkbox" class="form-check-input" id="togglePassword" onclick="togglePasswordVisibility()">
+                            <label class="form-check-label" for="togglePassword">Show Password</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form:form>
+                <h5 class="text-center mt-3">
+                    Don't have an account? <a href="/register">Sign up</a>
+                </h5>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

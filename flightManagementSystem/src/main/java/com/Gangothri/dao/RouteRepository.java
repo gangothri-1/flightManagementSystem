@@ -2,6 +2,7 @@ package com.Gangothri.dao;
 
 import java.util.List;
 
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
@@ -13,11 +14,11 @@ public interface RouteRepository  extends JpaRepository <Route,Long>{
 	@Query("select max(routeId) from Route")
 	public Long findLastRouteId();
 	
-	@Query("SELECT routeId FROM Route a WHERE sourceAirport = ?1 AND destinationAirportCode = ?2")
+	@Query("SELECT  a  FROM Route a WHERE sourceAirportCode = ?1 AND destinationAirportCode = ?2")
 	public Route findRouteBySourceAndDestination(String sourceAirportCode,String destinationAirportCode);
 	
 	@Query("SELECT routeId FROM Route")
-	public List<Long>findAllRoutesId();
+	public List<Long> findAllRoutesId();
 	
 	
 

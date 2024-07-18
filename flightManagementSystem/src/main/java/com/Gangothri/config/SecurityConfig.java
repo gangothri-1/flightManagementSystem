@@ -1,6 +1,7 @@
 package com.Gangothri.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,19 +20,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private FlightUserService service;
 	
 	@Autowired
-	private EncoderConfig econfig;
+	private EncoderConfig config;
 	
 	@Autowired
 	@Override
 	protected void configure(AuthenticationManagerBuilder authority) throws Exception {
-			authority.userDetailsService(service).passwordEncoder(econfig.passwordEncoder());
+			authority.userDetailsService(service).passwordEncoder(config.passwordEncoder());
 	}
 	
 	@Override
 	public void configure (HttpSecurity http) throws Exception{
-		   http.authorizeRequests().antMatchers("/register").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/loginpage")
+		http.authorizeRequests().antMatchers("/register","/images/**","/css/**","/jsp/**").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/loginpage")
+		.failureUrl("/loginerror").loginProcessingUrl("/login")
+		.permitAll().and().logout().logoutSuccessUrl("/index");
+	http.csrf().disable();		
+		
+		   /*http.authorizeRequests().antMatchers("/register").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/loginpage")
 			.failureUrl("/loginerror").loginProcessingUrl("/login")
 			.permitAll().and().logout().logoutSuccessUrl("/index");
-		http.csrf().disable();		
+		http.csrf().disable();	*/
 	}
 }

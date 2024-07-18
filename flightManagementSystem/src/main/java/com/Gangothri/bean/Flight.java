@@ -3,6 +3,7 @@ package com.Gangothri.bean;
 import javax.persistence.Entity;
 
 
+
 import javax.persistence.Id;
 
 @Entity
@@ -14,19 +15,21 @@ public class Flight {
 	private Integer seatCapacity;
 	private String departure;
 	private String arrival;
+	private Integer seatBooked;
 	public Flight() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Flight(Long flightNumber, String carrierName, Long routeId, Integer seatCapacity, String depurture,
+	public Flight(Long flightNumber, String carrierName, Long routeId, Integer seatCapacity, String departure,
 			String arrival) {
 		super();
 		this.flightNumber = flightNumber;
 		this.carrierName = carrierName;
 		this.routeId = routeId;
 		this.seatCapacity = seatCapacity;
-		this.departure = depurture;
+		this.departure = departure;
 		this.arrival = arrival;
+		this.seatBooked=0;
 		
 	}
 	public Long getFlightNumber() {
@@ -53,17 +56,29 @@ public class Flight {
 	public void setSeatCapacity(Integer seatCapacity) {
 		this.seatCapacity = seatCapacity;
 	}
-	public String getDepurture() {
+	public String getDeparture() {
 		return departure;
 	}
-	public void setDepurture(String depurture) {
-		this.departure = depurture;
+	public void setDeparture(String departure) {
+		this.departure = departure;
 	}
 	public String getArrival() {
 		return arrival;
 	}
 	public void setArrival(String arrival) {
 		this.arrival = arrival;
+	}
+	public Integer getSeatBooked() {
+		return seatBooked;
+	}
+	public void setSeatBooked(Integer seatBooked) {
+		this.seatBooked = seatBooked;
+	}
+	@Override
+	public String toString() {
+		return "Flight [flightNumber=" + flightNumber + ", carrierName=" + carrierName + ", routeId=" + routeId
+				+ ", seatCapacity=" + seatCapacity + ", departure=" + departure + ", arrival=" + arrival
+				+ ", seatBooked=" + seatBooked + "]";
 	}
 	
 	

@@ -13,7 +13,7 @@ public class FlightService {
 	@Autowired
 	private RouteDao routeDao;
 	public Flight createReturnFlight(Flight flight,String dtime,String atime) {
-		Long newId=flight.getFlightNumber()+1;
+		Long newId=flight.getFlightNumber()+1L;
 		Route route=routeDao.findRouteById(flight.getRouteId());
 		String sourceCode=route.getDestinationAirportCode();
 		String destinationCode=route.getSourceAirportCode();

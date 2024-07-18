@@ -14,12 +14,14 @@ import com.Gangothri.bean.Flight;
 
 public interface FlightDao {
     
-    public List<Flight> showAllFlights();
-	public Flight showFlight(Long id);
-	public List<Long> findAllFlights();
-	public List<Flight> findByRouteId(Long routeId);
-	public void save(Flight flight) ;
-	public void addFlight(Flight flight);
+	public void save(Flight flight);
+	public List<Flight> findAllFlights();
+	public List<Flight> findFlightsByRouteId(Long routeId);
+	public Flight findFlightById(Long id);
+
+	
+	
+	
 
     
 

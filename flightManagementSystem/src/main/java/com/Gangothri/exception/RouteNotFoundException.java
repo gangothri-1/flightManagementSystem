@@ -1,6 +1,6 @@
 package com.Gangothri.exception;
 
-public class RouteException extends RuntimeException {
+public class RouteNotFoundException extends RuntimeException {
 
 	static final long serialVersionUID = 1L;
 	

@@ -5,6 +5,8 @@ package com.Gangothri.bean;
 
 
 import java.util.ArrayList;
+
+
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -57,10 +59,19 @@ public class FlightUser extends User {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "FlightUser [username=" + username + ", password=" + password + ", type=" + type + "]";
+	}
+
+	
+
+	
+	}
     
 	
 	
-}
 	
 	
 
